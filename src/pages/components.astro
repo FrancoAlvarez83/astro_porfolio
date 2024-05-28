@@ -1,0 +1,132 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+//Componentes
+import SocialPill from "../components/SocialPill.astro"; 
+import Container from "../components/Container.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import LinkButton from "../components/LinkButton.astro";
+import Projects from "../components/Projects.astro";
+import CodeBlock from "../components/CodeBlock.astro";
+import ExperienceItem from '../components/ExperienceItem.astro';
+import Sidebar from "../components/Sidebar.astro";
+
+// Code Components
+import CodeHeader from '../components/codeComponents/CodeHeader.astro';
+import CodeExperience from '../components/codeComponents/CodeExperience.astro';
+import CodeSocialPill from '../components/codeComponents/CodeSocialPill.astro'
+import CodeLinkButton from "../components/codeComponents/CodeLinkButton.astro";
+import CodeProjects from '../components/codeComponents/CodeProjects.astro';
+import CodeFooter from "../components/codeComponents/CodeFooter.astro";
+
+//Objetos
+import {EXPERIENCE_COMPONENT} from '../jsObjects/ExperienceObject.js';
+import { COMPONENTS } from '../jsObjects/ComponentsObject';
+import { SOCIALS } from "../jsObjects/SocialsObject";
+import {LINK_BUTTON} from '../jsObjects/LinkButtonObject';
+import { PROJECTS_COMPONENT } from "../jsObjects/ProjectsObject";
+
+//Icons
+import LinkedInIcon from "../components/icons/LinkedIn.astro";
+import GitHubIcon from "../components/icons/GitHub.astro";
+import MailIcon from "../components/icons/Mail.astro"; 
+import CVIcon from "../components/icons/CV.astro";     
+import GitHub from "../components/icons/GitHub.astro";
+import Link from "../components/icons/Link.astro";
+
+    
+---
+
+<Layout
+title="Componentes"
+description="Catálogo de Componentes utilizados en el porfolio."
+>
+
+<Sidebar />
+
+<Container class="py-44 pb-32 flex flex-col gap-y-10 mt-10">
+    
+    {
+        COMPONENTS.map(({ title, description, Component, code, params, icons }) => (
+        <article class="mb-10 mt-20" id={title}>
+            <h1 class="mb-4 text-orange-600 text-2xl font-semibold">{title}</h1>
+            <p class="text-sm text-white/90 mb-4">{description}</p>
+                <div class="flex items-center justify-center dark:bg-stone-950/30 rounded-xl min-h-24 mb-4 p-10">
+                    {
+                        params != false && icons.length > 0 ? <Component params={params} icons={icons} /> : 
+                        params != false ? <Component params={params} /> : <Component />                   
+                    }
+
+                </div>
+            <div class="relative mx-auto">
+            <div class="bg-zinc-950/10 text-white p-4 rounded-md overflow-scroll max-h-96 max-w-[1120px]">
+                  <div class="flex justify-between items-center mb-2">
+                <span class="text-white/80">Código:</span>
+            <button
+                class="code bg-orange-600 hover:bg-orange-600/80 transition text-white/90 px-3 py-1 rounded-md" 
+                name="copy_button"                    
+                data-id={code}
+            >
+                Copiar al portapapeles              
+            </button>
+            </div>
+            <div>
+                <pre>
+    <code>
+        <CodeBlock id={code}> {() => {                
+                    switch (code) {
+                        case 'CodeHeader':
+                            return <CodeHeader />
+                            break;  
+                        case 'CodeExperience':
+                            return <CodeExperience />
+                            break;  
+                        case 'CodeSocialPill':
+                            return <CodeSocialPill />
+                            break;       
+                         case 'CodeLinkButton':
+                            return <CodeLinkButton />
+                            break;
+                        case 'CodeProjects':
+                            return <CodeProjects />
+                            break;                         
+                        case 'CodeFooter':
+                            return <CodeFooter />
+                            break;                         
+                    }}
+                }    </CodeBlock>  
+                </code>  
+                </pre>
+            </div>
+        </div>
+    </div>
+    </article>
+        ))
+      }      
+</Container>   
+
+
+</Layout>
+
+
+<script is:inline>
+// Obtener la referencia a todos los botones de copia
+  const copyButtons = document.getElementsByName("copy_button");
+
+  copyButtons.forEach(button => {
+    // Agregar un evento de clic a cada botón de copia
+    button.addEventListener("click", (e) => {
+        // Obtener el contenido del elemento <pre> con el id {code}
+        const dataId = e.target.getAttribute("data-id");
+        const textContent = document.getElementById(dataId).textContent;
+        navigator.clipboard.writeText(textContent);
+        // Do whatever you need with dataId here
+        
+        button.textContent = "Copiado!";
+        setTimeout(() => {
+            button.textContent = "Copiar al portapapeles";
+        }, 1500);
+    });
+}); 
+</script>

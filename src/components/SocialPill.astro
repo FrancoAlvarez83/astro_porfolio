@@ -1,0 +1,29 @@
+---
+const { params } = Astro.props
+
+// const {href, title, Icon} = params
+
+
+import DownloadIcon from '../components/icons/Download.astro'
+import MailIcon from '../components/icons/Mail.astro';
+import LinkedInIcon from '../components/icons/LinkedIn.astro'
+import GitHubIcon from '../components/icons/GitHub.astro'
+
+console.log(params)
+---
+
+
+{
+    params.map(({href, Icon, title}:any) => (       
+        <a class="rounded-lg border border-white/10 flex justify-center items-center gap-x-2 py-1 px-2 md:py-2 md:px-4 text-xs md:text-base bg-white/5 hover:scale-105 hover:bg-white/10 transition" 
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        >
+        {<Icon />}
+        {console.log(title)}
+    {title}
+    </a>
+    ))
+}
+

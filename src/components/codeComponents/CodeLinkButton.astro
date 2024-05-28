@@ -1,0 +1,29 @@
+{`export const LINK_BUTTON = [
+            {
+                href: 'https://www.linkedin.com/in/franco-alvarez-8ab600262/',
+                icon: 'GitHubIcon',
+                title:'Código'
+            },
+            {
+                href: 'https://github.com/FrancoAlvarez83/',
+                icon: 'Link',
+                title:'Demo'
+            }   
+            ...
+        ]
+`}
+
+<p>
+    <pre>
+      <code>
+        &lt;footer class="flex items-end justify-start mt-4 gap-x-4"&gt;
+            {`LINK_BUTTON.map( (link) => (    
+                <LinkButton href={link.href}>
+                    {link.icon}
+                    {link.title} 
+                </LinkButton> 
+            ))`}
+        &lt;/footer&gt;
+        </code>
+        </pre>
+        </p>

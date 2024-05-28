@@ -1,0 +1,59 @@
+---
+import ComponentIcon from '../components/icons/Component.astro';
+import GitHubIcon from './icons/GitHub.astro';
+import LinkedInIcon from './icons/LinkedIn.astro';
+import MailIcon from './icons/Mail.astro';
+import CVIcon from './icons/CV.astro';
+import DownloadIcon from './icons/Download.astro';
+
+import SocialPill from './SocialPill.astro';
+
+
+import { SOCIALS } from '../jsObjects/SocialsObject';
+
+---
+
+
+<div>
+    <h2 class="text-base pb-3">Hey!</h2>
+    <div class="flex">
+        <h1 class="text-white text-4xl md:text-6xl font-bold pb-3">Soy <span class="text-orange-500">Franco Alvarez</span></h1>
+
+        <!-- <span id="dropdownRightButton" data-dropdown-toggle="dropdownRight" data-dropdown-placement="right" class="cursor-pointer inline-flex items-center justify-center size-6 me-2 text-sm font-semibold text-blue-800 bg-blue-100 rounded-full dark:bg-gray-700 dark:text-white/90">
+            <svg class="size-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+            </svg>						
+        </span>			  -->
+    
+        
+        <!-- Dropdown menu -->
+        <div id="dropdownRight" class="absolute z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-white/5 dark:divide-gray-600 lg:ml-[600px] lg:mt-[-20px]">
+            <!-- <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownRightButton"> -->
+                <!-- <li>		
+                    <a href="/components" class="dark:hover:text-orange-500 transition flex items-center px-4 gap-2 py-2"><ComponentIcon class="size-4" />	Componentes</a>
+                </li> -->
+                <!-- <li class="flex items-center px-4 gap-2 py-2">			
+                    <CVIcon class="size-4" />					
+                    <a href="/components" class="dark:hover:text-orange-500 transition">Descargar CV</a>
+                </li> -->
+                <!-- <li class="flex items-center px-4 gap-2 py-2">			
+                    <FileInfoIcon class="size-4" />					
+                    <a href="#" class="dark:hover:text-orange-500 transition">Información</a>
+                </li> -->
+            <!-- </ul>						 -->
+        </div>
+        
+    </div>
+    <h2 class="text-lg md:text-xl opacity-85 text-wrap pb-3">Desarrollador Web <span class="text-orange-500 font-semibold opacity-100"> de Córdoba, Argentina.</span> Enfocado en <span class="text-white font-semibold opacity-100">Front End</span></h2>
+    <nav class="flex flex-wrap gap-4 mt-3">
+        <SocialPill params={SOCIALS} />
+        <!-- {           
+            SOCIALS.map((social) => { 
+                return (
+                    <SocialPill params={social} />                                
+                );
+            })
+        }      		 -->
+    </nav>
+</div>
+<!-- <img class="invisible sm:visible h-[540px] ml-[100px]" src="/profile.png" alt="Franco" style="mask-image: linear-gradient(to bottom, black 80%, transparent 95%);">			 -->

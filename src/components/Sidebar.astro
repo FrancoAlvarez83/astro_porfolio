@@ -1,0 +1,14 @@
+---
+    import { SIDEBAR_ROUTES_PORFOLIO } from "../jsObjects/SidebarRouteObject";
+    import { SIDEBAR_ROUTES_COMPONENTS } from "../jsObjects/SidebarRouteObject";
+    import SidebarSegment from "./SidebarSegment.astro";
+  
+---
+
+<nav class="fixed z-40 top-0 left-0 w-full h-full  bg-transparent space-y-8 overflow-auto sm:w-80">           
+            <div class='text-[0.9rem] space-y-6 pt-64'>
+                <SidebarSegment title="Principal" object={SIDEBAR_ROUTES_PORFOLIO} />
+               
+                <!-- <SidebarSegment title="Componentes" object={SIDEBAR_ROUTES_COMPONENTS} /> -->
+            </div>
+</nav>

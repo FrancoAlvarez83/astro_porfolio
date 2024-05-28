@@ -1,0 +1,133 @@
+---
+import ThemeToggle from "./ThemeToggle.astro"
+
+import GitHubIcon from "./icons/GitHub.astro";
+import LinkedInIcon from "./icons/LinkedIn.astro";
+
+import { NAVIGATION } from "../jsObjects/NavigationObject";
+---
+
+<header
+  class={`sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white supports-backdrop-blur:bg-white/95 bg-slate-900/5 dark:bg-slate-900/75 ${Astro.props.class}`}
+>
+ <div class="max-w-4xl mx-auto">
+    <div class="py-4 border-b border-slate-900/10 lg:border-0 dark:border-slate-300/10 mx-4 lg:mx-0">
+      <div class="flex justify-between items-center py-3 lg:max-w-4xl md:max-w-2xl w-full">        
+        <a href="/" class="flex items-center overflow-hidden">
+          <img class="h-5" src="/logo_personal.png" alt="Logo Falv">
+          <h5 class="font-semibold text-black dark:text-white/90">Falv</h5>         
+        </a>
+      
+        <nav
+        class="hidden w-full md:flex md:w-auto nav-links" 
+      >
+
+        {
+          NAVIGATION.map((link) => (
+            <a
+              class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-orange-400"
+              aria-label={link.label}
+              href={link.url}
+            >
+              {link.title}
+            </a>
+          ))
+        }     
+      </nav>
+        <div class="flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800 gap-6">
+          <a 
+          href="https://github.com/FrancoAlvarez83/"          
+          target="_blank">
+            <GitHubIcon fill="#94A3B8" class="size-5 cursor-pointer opacity-80 hover:opacity-100 transition" />
+          </a>
+          <a href="https://www.linkedin.com/in/franco-alvarez-8ab600262/" target="_blank">
+            <LinkedInIcon fill="#94A3B8" class="size-5 cursor-pointer opacity-80 hover:opacity-100 transition" />
+          </a>
+          <!-- <ThemeToggle fill="#94A3B8" /> -->
+          <!-- <button onclick="onToggleMenu(this)" name="menu" data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+            </svg>
+      </button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const navLinks = document.querySelector('.nav-links')
+  function onToggleMenu(e){
+      e.name = e.name === 'menu' ? 'close' : 'menu'
+      navLinks.classList.toggle('top-[9%]')
+  }
+</script>
+
+    <!-- {
+      NAVIGATION.map(({ label, url, title }) => (
+        <a
+          class="relative block px-2 py-2 transition hover:text-orange-500 dark:hover:text-orange-500"
+          aria-label={label}
+          href={url}
+        >
+          {title}
+        </a>
+      ))
+    } -->
+
+<!-- <script>
+  document.addEventListener("astro:page-load", () => {
+    const sections = document.querySelectorAll("section")
+    const navItems = document.querySelectorAll("header nav a")
+
+    const callback = (entries: any[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navItems.forEach((item) => {
+            if (item.getAttribute("aria-label") == entry.target.id) {
+              item.classList.add("text-orange-500")
+            } else {
+              item.classList.remove("text-orange-500")
+            }
+          })
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(callback, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3,
+    })
+
+    sections.forEach((section) => {
+      observer.observe(section)
+    })
+
+    // Cleanup function
+    document.onvisibilitychange = () => {
+      if (document.visibilityState === "hidden") {
+        observer.disconnect()
+      } else {
+        sections.forEach((section) => {
+          observer.observe(section)
+        })
+      }
+    }
+  })
+</script>
+
+<style>
+  nav {
+    animation: nav-shadown 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+
+  @keyframes nav-shadown {
+    to {
+      @apply shadow-lg ring-1 backdrop-blur dark:bg-gray-800/90 bg-black/40 ring-white/10;
+    }
+  }
+</style> -->

@@ -1,0 +1,41 @@
+---
+  import Tag from '../codeHelpers/Tag.astro'
+  import OpenTag from '../codeHelpers/OpenTag.astro'
+  import CloseTag from '../codeHelpers/CloseTag.astro'
+  import CodeHelper from '../codeHelpers/CodeHelper.astro'
+---
+
+{`export const NAVIGATION = [
+  {
+      title: "Inicio",
+      label: "inicio",
+      url: "/#inicio",
+  },
+  {
+      title: "Experiencia",
+      label: "experiencia",
+      url: "/#experiencia",
+  }   
+  ...
+]
+`}
+
+<CodeHelper>Header</CodeHelper>
+<p>
+<pre>
+<code>
+  <!-- <span><OpenTag /><Tag>Header</Tag> <CloseTag /></span> -->
+  
+&lt;header class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2" &gt;
+&lt;nav class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-white/90 justify-center items-center"&gt;
+{`NAVIGATION.map(({ label, url, title }) => (
+    <a class="relative block px-2 py-2 transition hover:text-orange-500 dark:hover:text-orange-500" aria-label={label} href={url}>
+      {title}
+    </a>
+  ))`}
+  &lt;ThemeToggle /&gt;
+&lt;/nav&gt;
+&lt;/header&gt;
+</code>
+</pre>
+</p>

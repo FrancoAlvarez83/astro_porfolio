@@ -1,0 +1,14 @@
+---
+const {EXPERIENCE} = Astro.props
+
+import ExperienceItem from "./ExperienceItem.astro";
+
+---
+
+<ol class="relative border-s ml-2 border-red-200/95 dark:border-gray-700">
+    {EXPERIENCE.map((exp: any) => (
+        <li class="mb-10 ms-4">        
+            <ExperienceItem {...exp} />
+        </li>
+    ))}
+</ol>
