@@ -1,11 +1,11 @@
 export const EXPERIENCE = [
     {
-        date: 'Dic 2023 - Presente',
+        date: 'Dic 2023 - Feb 2024',
         title: 'CRM - Verticall',
         description: 'Rediseño y desarrollo completo de front end de sistema administrativo de empresas.',       
     },
     {
-        date: 'May - Jun 2023',
+        date: 'May 2023 - Ago 2023',
         title: 'Farm Manager - Freelance',
         description: 'Desarrollo de nuevos contenidos y optimizaciones a sistema administrativo de campos y cultivos desarrollado usando Jquery, PHP y MySql.'       
     },
