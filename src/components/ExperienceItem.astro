@@ -1,6 +1,6 @@
 ---
 
-const { params } = Astro.props || {};
+const {title, description, date}  = Astro.props || {};
 // const {title, description, date} = Astro.props
 
 export interface Props{
@@ -10,7 +10,6 @@ export interface Props{
 }
 
 // Provide default values when destructuring
-const {title = '', description = '', date = ''} = params || {};
 
 console.log({title, description, date});
 ---

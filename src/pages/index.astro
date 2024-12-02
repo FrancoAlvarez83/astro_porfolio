@@ -14,7 +14,6 @@ import Container from '../components/Container.astro';
 import Projects from '../components/Projects.astro';
 import AboutMe from '../components/AboutMe.astro';
 import ExperienceItem from '../components/ExperienceItem.astro';
-import Sidebar from '../components/Sidebar.astro';
 
 
 ---
@@ -38,7 +37,7 @@ import Sidebar from '../components/Sidebar.astro';
 			<ol class="relative border-s ml-2 border-red-200/95 dark:border-gray-700">
 				{EXPERIENCE.map(exp => (
 					<li class="mb-10 ms-4">        
-						<ExperienceItem params={exp} />
+						<ExperienceItem {...exp} />
 						
 					</li>
 				))}

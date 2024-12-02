@@ -5,8 +5,6 @@ import { LINK_BUTTON } from "./LinkButtonObject";
 import { PROJECTS_COMPONENT } from "./ProjectsObject";
 
 //? Icons
-import MailIcon from "../components/icons/Mail.astro";
-import DownloadIcon from "../components/icons/Download.astro";
 import GitHubIcon from "../components/icons/GitHub.astro";
 import LinkIcon from "../components/icons/Link.astro";
 

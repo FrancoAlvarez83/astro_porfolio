@@ -2,14 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 
 //Componentes
-import SocialPill from "../components/SocialPill.astro"; 
 import Container from "../components/Container.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import LinkButton from "../components/LinkButton.astro";
-import Projects from "../components/Projects.astro";
 import CodeBlock from "../components/CodeBlock.astro";
-import ExperienceItem from '../components/ExperienceItem.astro';
 import Sidebar from "../components/Sidebar.astro";
 
 // Code Components
@@ -21,19 +15,9 @@ import CodeProjects from '../components/codeComponents/CodeProjects.astro';
 import CodeFooter from "../components/codeComponents/CodeFooter.astro";
 
 //Objetos
-import {EXPERIENCE_COMPONENT} from '../jsObjects/ExperienceObject.js';
-import { COMPONENTS } from '../jsObjects/ComponentsObject';
-import { SOCIALS } from "../jsObjects/SocialsObject";
-import {LINK_BUTTON} from '../jsObjects/LinkButtonObject';
-import { PROJECTS_COMPONENT } from "../jsObjects/ProjectsObject";
 
-//Icons
-import LinkedInIcon from "../components/icons/LinkedIn.astro";
-import GitHubIcon from "../components/icons/GitHub.astro";
-import MailIcon from "../components/icons/Mail.astro"; 
-import CVIcon from "../components/icons/CV.astro";     
-import GitHub from "../components/icons/GitHub.astro";
-import Link from "../components/icons/Link.astro";
+import { COMPONENTS } from '../jsObjects/ComponentsObject';
+
 
     
 ---
@@ -48,7 +32,7 @@ description="Catálogo de Componentes utilizados en el porfolio."
 <Container class="py-44 pb-32 flex flex-col gap-y-10 mt-10">
     
     {
-        COMPONENTS.map(({ title, description, Component, code, params, icons }) => (
+        COMPONENTS.map(({ title, description,  code }) => (
         <article class="mb-10 mt-20" id={title}>
             <h1 class="mb-4 text-orange-600 text-2xl font-semibold">{title}</h1>
             <p class="text-sm text-white/90 mb-4">{description}</p>
@@ -78,22 +62,21 @@ description="Catálogo de Componentes utilizados en el porfolio."
                     switch (code) {
                         case 'CodeHeader':
                             return <CodeHeader />
-                            break;  
+                            
                         case 'CodeExperience':
                             return <CodeExperience />
-                            break;  
+                            
                         case 'CodeSocialPill':
                             return <CodeSocialPill />
-                            break;       
+                                 
                          case 'CodeLinkButton':
                             return <CodeLinkButton />
-                            break;
                         case 'CodeProjects':
                             return <CodeProjects />
-                            break;                         
+                                                   
                         case 'CodeFooter':
                             return <CodeFooter />
-                            break;                         
+                                                   
                     }}
                 }    </CodeBlock>  
                 </code>  

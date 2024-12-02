@@ -2,7 +2,6 @@
 import SunIcon from "./icons/Sun.astro"
 import MoonIcon from "./icons/Moon.astro"
 import SystemIcon from "./icons/System.astro"
-import ThemeIcon from "./icons/Theme.astro"
 import System from "./icons/System.astro"
 
 
@@ -81,7 +80,7 @@ const THEMES = [
 
 <script is:inline>
 
-  const matchMedia = window.matchMedia("(prefers-color-scheme: dark)")
+  //const matchMedia = window.matchMedia("(prefers-color-scheme: dark)")
   const themesMenu = document.getElementById("themes-menu")
 
   const getThemePreference = () => {
